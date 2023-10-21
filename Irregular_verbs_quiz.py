@@ -1,3 +1,0 @@
-print("QUIZ VERBI IRREGOLARI")
-
-
