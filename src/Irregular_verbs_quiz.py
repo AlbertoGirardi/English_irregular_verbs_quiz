@@ -47,4 +47,4 @@ for index,verb in lista_verbi.iterrows():
 
 
 t2 = time.time()
-print(f"time:\t{t2-t0}")
+print(f"time:\t{round((t2-t0)/60, 3)}")
