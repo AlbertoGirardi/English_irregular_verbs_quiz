@@ -1,4 +1,4 @@
-from os import error
+
 import pandas as pd
 import random
 
