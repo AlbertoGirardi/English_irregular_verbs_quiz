@@ -14,7 +14,15 @@ def get_verbo():                #get verb paradigm
     print('\n\n')
     return ( inf, past, part, ita )
 
-lista_verbi = pd.DataFrame( columns=['infinitive', 'past', 'past participle', 'italiano'] )
+
+try: 
+    lista_verbi = pd.read_csv( data_file, header = 0, index_col=0 )
+    print( lista_verbi )
+
+
+except FileNotFoundError:
+
+    lista_verbi = pd.DataFrame( columns=['infinitive', 'past', 'past participle', 'italiano'] )
 
 print("Add the verbs. Press ctrl+c to exit and save")
 
@@ -32,6 +40,8 @@ try:
 except KeyboardInterrupt:
 
     print('\n\n\nSaving to file')
+
+    lista_verbi = lista_verbi.drop_duplicates()
     
     lista_verbi.to_csv( data_file )
 
