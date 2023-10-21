@@ -7,10 +7,10 @@ data_file = 'data\\verbs.csv'
 
 def get_verbo():                #get verb paradigm
 
-    inf = input('\n\nInfinitive:')
-    past = input('\nPast form:')
-    part = input('\nPast participle:')
-    ita = input('\nItalian:')
+    inf = input('\n\nInfinitive:').rstrip()
+    past = input('\nPast form:').rstrip()
+    part = input('\nPast participle:').rstrip()
+    ita = input('\nItalian:').rstrip()
     print('\n\n')
     return ( inf, past, part, ita )
 
@@ -33,8 +33,13 @@ try:
 
         verbo_nuovo = get_verbo()
         print( verbo_nuovo )
+
+        if input('Correct?ENTER for yes\t') == '':
  
-        lista_verbi.loc[len( lista_verbi )] = verbo_nuovo
+            lista_verbi.loc[len( lista_verbi )] = verbo_nuovo
+
+        else:
+             print("\ncorrect the entry:\n")
 
 
 except KeyboardInterrupt:
