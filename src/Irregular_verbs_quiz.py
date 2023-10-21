@@ -24,17 +24,19 @@ for index,verb in lista_verbi.iterrows():
 
     q = choose.pop( random.randint(0,2) ) 
 
-    print( lista_verbi.columns[q], ':\t'  ,verb.iloc[q] )
+    print(f"{lista_verbi.columns[q].upper():<25}:\t{verb.iloc[q].upper()}\n" )
 
     for n in choose:
         total +=1
-        if input( f"{lista_verbi.columns[n]}:\t",  ).rstrip() == verb.iloc[n]:
+        if input( f"{lista_verbi.columns[n]:<25}:\t",  ).rstrip() == verb.iloc[n]:
             print('OK')
 
 
         else:
-            print('Sbagliato')
-            errors += 1
+            print(f'Sbagliato: { verb.iloc[n] }')
+
+            if n != 3:
+                errors += 1
 
     report()
     print('\n\n\n')
