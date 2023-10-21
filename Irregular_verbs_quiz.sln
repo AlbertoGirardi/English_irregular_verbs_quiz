@@ -7,10 +7,12 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Irregular_verbs_quiz", "Irr
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		c1|Any CPU = c1|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1EC852B-A0BB-440C-A01A-6FC20B71B8B8}.c1|Any CPU.ActiveCfg = Debug|Any CPU
 		{C1EC852B-A0BB-440C-A01A-6FC20B71B8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C1EC852B-A0BB-440C-A01A-6FC20B71B8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection

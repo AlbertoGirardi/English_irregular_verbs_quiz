@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c1ec852b-a0bb-440c-a01a-6fc20b71b8b8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Irregular_verbs_quiz.py</StartupFile>
+    <StartupFile>src\Irregular_verbs_quiz.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -20,8 +20,16 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'c1' ">
+    <OutputPath>bin\c1\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Irregular_verbs_quiz.py" />
+    <Compile Include="src\Irregular_verbs_quiz.py" />
+    <Compile Include="src\create_verb_list.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="src\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
