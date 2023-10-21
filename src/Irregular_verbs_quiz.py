@@ -1,4 +1,4 @@
-
+import time
 import pandas as pd
 import random
 
@@ -7,7 +7,7 @@ import random
 def report():
 
   
-    print(f"\nerrors:\t{errors}\t{ round( errors/total * 100 ,3 ) }%")
+    print(f"\nerrors:\t{errors}/{total}\t{ round( errors/total * 100 ,3 ) }%")
 
 print("QUIZ VERBI IRREGOLARI")
 
@@ -18,6 +18,8 @@ lista_verbi = pd.read_csv( data_file, header = 0, index_col=0 )
 
 errors = 0
 total = 0
+
+t0 = time.time()
 
 for index,verb in lista_verbi.iterrows():
 
@@ -41,3 +43,8 @@ for index,verb in lista_verbi.iterrows():
 
     report()
     print('\n\n\n')
+
+
+
+t2 = time.time()
+print(f"time:\t{t2-t0}")
