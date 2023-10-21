@@ -6,7 +6,8 @@ import random
 
 def report():
 
-    print(f"\nerrors:{ round( errors/total * 100 ,3 ) }%")
+  
+    print(f"\nerrors:\t{errors}\t{ round( errors/total * 100 ,3 ) }%")
 
 print("QUIZ VERBI IRREGOLARI")
 
