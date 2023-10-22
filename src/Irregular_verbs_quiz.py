@@ -13,13 +13,18 @@ def report():
 
 print("QUIZ VERBI IRREGOLARI")
 
-data_file = 'data\\verbsa.csv'
+data_file = 'data\\verbs.csv'
 
 try:
     lista_verbi = pd.read_csv( data_file, header = 0, index_col=0 )
 
 except FileNotFoundError:
-    lista_verbi = pd.read_csv( "verbs.csv", header = 0, index_col=0 )
+
+    try:
+        lista_verbi = pd.read_csv( "verbs.csv", header = 0, index_col=0 )
+
+    except FileNotFoundError:
+        pass
 
 errors = 0
 total = 0
