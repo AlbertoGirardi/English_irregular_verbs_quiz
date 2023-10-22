@@ -4,6 +4,8 @@ import random
 
 
 
+
+
 def report():
 
   
@@ -21,7 +23,18 @@ total = 0
 
 t0 = time.time()
 
-for index,verb in lista_verbi.iterrows():
+indexs = []
+verbs = []
+
+for index, verb in lista_verbi.iterrows():
+    indexs.append(index)
+    verbs.append(verb)
+
+for _ in range( len( lista_verbi ) ):
+
+    index = indexs.pop( random.randint( 0, len(indexs)-1 ) )
+    #print(indexs)
+    verb = verbs[index]
 
     choose= [0,1,2,3]
 
