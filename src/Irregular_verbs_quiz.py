@@ -12,7 +12,7 @@ def report():
     print(f"\nerrors:\t{errors}/{total}\t{ round( errors/total * 100 ,3 ) }%")
 
 
-print("QUIZ VERBI IRREGOLARI")
+print("QUIZ VERBI IRREGOLARI\n\nTo exit ctrl+c\n\n")
 
 data_file = 'data\\verbs.csv'
 
@@ -38,41 +38,45 @@ verbs = []
 error_list = []
 num = 1
 
-for index, verb in lista_verbi.iterrows():
-    indexs.append(index)
-    verbs.append(verb)
+try:
 
-for _ in range( len( lista_verbi ) ):
+    for index, verb in lista_verbi.iterrows():
+        indexs.append(index)
+        verbs.append(verb)
 
-    index = indexs.pop( random.randint( 0, len(indexs)-1 ) )
-    #print(indexs)
-    verb = verbs[index]
+    for _ in range( len( lista_verbi ) ):
 
-    choose= [0,1,2,3]
+        index = indexs.pop( random.randint( 0, len(indexs)-1 ) )
+        #print(indexs)
+        verb = verbs[index]
 
-    q = choose.pop( random.randint(0,2) ) 
+        choose= [0,1,2,3]
 
-    print(f'{num}/{len( lista_verbi )}')
-    print(f"{lista_verbi.columns[q].upper():<25}:\t{verb.iloc[q].upper()}\n" )
+        q = choose.pop( random.randint(0,2) ) 
 
-    for n in choose:
-        total +=1
-        if input( f"{lista_verbi.columns[n]:<25}:\t",  ).rstrip() == verb.iloc[n]:
-            print('OK')
+        print(f'{num}/{len( lista_verbi )}')
+        print(f"{lista_verbi.columns[q].upper():<25}:\t{verb.iloc[q].upper()}\n" )
 
-
-        else:
-            print(f'Sbagliato: { verb.iloc[n] }')
-
-            if n != 3:
-                errors += 1
-                error_list.append( verb.iloc[0] )
-    num += 1
-
-    report()
-    print('\n\n\n')
+        for n in choose:
+            total +=1
+            if input( f"{lista_verbi.columns[n]:<25}:\t",  ).rstrip() == verb.iloc[n]:
+                print('OK')
 
 
+            else:
+                print(f'Sbagliato: { verb.iloc[n] }')
+
+                if n != 3:
+                    errors += 1
+                    error_list.append( verb.iloc[0] )
+        num += 1
+
+        report()
+        print('\n\n\n')
+
+
+except KeyboardInterrupt:
+    print("\n\n\nconclusione test")
 
 t2 = time.time()
 print(f"time:\t{round((t2-t0)/60, 3)}")
