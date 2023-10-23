@@ -12,7 +12,7 @@ def report():
     print(f"\nerrors:\t{errors}/{total}\t{ round( errors/total * 100 ,3 ) }%")
 
 
-print("QUIZ VERBI IRREGOLARI\n\nTo exit ctrl+c\n\n")
+print("quiz verbi irregolari\n\nto exit ctrl+c\n\n")
 
 data_file = 'data\\verbs.csv'
 
