@@ -36,6 +36,7 @@ t0 = time.time()
 indexs = []
 verbs = []
 error_list = []
+num = 1
 
 for index, verb in lista_verbi.iterrows():
     indexs.append(index)
@@ -51,6 +52,7 @@ for _ in range( len( lista_verbi ) ):
 
     q = choose.pop( random.randint(0,2) ) 
 
+    print(f'{num}/{len( lista_verbi )}')
     print(f"{lista_verbi.columns[q].upper():<25}:\t{verb.iloc[q].upper()}\n" )
 
     for n in choose:
@@ -65,6 +67,7 @@ for _ in range( len( lista_verbi ) ):
             if n != 3:
                 errors += 1
                 error_list.append( verb.iloc[0] )
+    num += 1
 
     report()
     print('\n\n\n')
