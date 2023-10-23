@@ -1,15 +1,16 @@
 import time
 import pandas as pd
 import random
+import sys
 
 
 
 
 
 def report():
-
   
     print(f"\nerrors:\t{errors}/{total}\t{ round( errors/total * 100 ,3 ) }%")
+
 
 print("QUIZ VERBI IRREGOLARI")
 
@@ -24,7 +25,8 @@ except FileNotFoundError:
         lista_verbi = pd.read_csv( "verbs.csv", header = 0, index_col=0 )
 
     except FileNotFoundError:
-        pass
+        print("FILE NOT FOUND!!!")
+        sys.exit()
 
 errors = 0
 total = 0
@@ -33,6 +35,7 @@ t0 = time.time()
 
 indexs = []
 verbs = []
+error_list = []
 
 for index, verb in lista_verbi.iterrows():
     indexs.append(index)
@@ -61,6 +64,7 @@ for _ in range( len( lista_verbi ) ):
 
             if n != 3:
                 errors += 1
+                error_list.append( verb.iloc[0] )
 
     report()
     print('\n\n\n')
@@ -69,3 +73,6 @@ for _ in range( len( lista_verbi ) ):
 
 t2 = time.time()
 print(f"time:\t{round((t2-t0)/60, 3)}")
+report()
+
+print(f"\nVerbi sbagliati: {error_list}")
